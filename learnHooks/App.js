@@ -12,8 +12,8 @@ const App = () => {
   const [hasilBagi, setHasilBagi] = useState(0);
 
   const masukkanNilai = () => {
-    const a = parseFloat(inputNilaiA.current.value);
-    const b = parseFloat(inputNilaiB.current.value);
+    const a = parseFloat(inputNilaiA.current);
+    const b = parseFloat(inputNilaiB.current);
     setNilaiA(a);
     setNilaiB(b);
   };
@@ -29,17 +29,17 @@ const App = () => {
     <View style={styles.container}>
       <Text>Masukkan nilai A</Text>
       <TextInput
-        ref={inputNilaiA}
         style={styles.input}
         keyboardType="numeric"
         placeholder="Nilai A"
+        onChangeText={(text) => inputNilaiA.current = text}
       />
       <Text>Masukkan nilai B</Text>
       <TextInput
-        ref={inputNilaiB}
         style={styles.input}
         keyboardType="numeric"
         placeholder="Nilai B"
+        onChangeText={(text) => inputNilaiB.current = text}
       />
       <Button title="Masukkan Nilai" onPress={masukkanNilai} />
       <Text style={styles.title}>Operasi Matematika</Text>
